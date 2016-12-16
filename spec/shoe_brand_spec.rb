@@ -1,5 +1,5 @@
 require('spec_helper')
 
-describe Shoe_Brand do
+describe Shoe_brand do
 
 end

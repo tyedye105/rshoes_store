@@ -1,13 +1,15 @@
 ENV['RACK_ENV'] = 'test'
 require('rspec')
-require('pg')
 require('sinatra/activerecord')
+require('pg')
 require('shoe_brand')
 require('shoe_store')
 
 RSpec.configure do |config|
   config.after(:each) do
-    Shoe_Brand.all.each(&:destroy)
-    Shoe_Store.all.each(&:destroy)
+    Shoe_store.all().each() do |task|
+        task.destroy()
+
+    end
   end
 end

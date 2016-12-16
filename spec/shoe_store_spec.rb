@@ -1,5 +1,4 @@
 require('spec_helper')
 
-describe Shoe_Store do
-
+describe Shoe_store do
 end
