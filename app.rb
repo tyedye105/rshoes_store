@@ -28,3 +28,9 @@ delete('/stores/:id/delete') do
   @brands = Shoe_brand.all
   erb(:index)
 end
+
+get('/stores/:id') do
+  @store = Shoe_store.find(params.fetch('id').to_i)
+  @brands = Shoe_brand.all
+  erb(:store_view)
+end
