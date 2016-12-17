@@ -5,7 +5,7 @@
 
 ## Known issues
 
- Having worked from home I encountered multiple errors with my home setup.I managed to solve my encryption problem, and the missing zlib problem, but the issues with rspec and activerecord I am still fighting. Rspec first had issues in my spec_helper with my RSpec config lines 8-10, citing that my class names where uninitialized constants, after building out as much as I could of sinatra, I did go back and rename them and that fixed that issue. Originally tables were titled shoe_stores, and shoe_brands but rspec took issue with them, until I renamed them stores, and brands.  Then came binding.pry being an undefined method, did little to help my efforts. 
+ Having worked from home I encountered multiple errors with my home setup.I managed to solve my encryption problem, and the missing zlib problem, but the issues with rspec and activerecord I am still fighting. Rspec first had issues in my spec_helper with my RSpec config lines 8-10, citing that my class names where uninitialized constants, after building out as much as I could of sinatra, I did go back and rename them and that fixed that issue. Originally tables were titled shoe_stores, and shoe_brands but rspec took issue with them, until I renamed them stores, and brands.  Then came binding.pry being an undefined method, did little to help my efforts.
 
 
 
@@ -29,7 +29,7 @@ This web app leverages the power of Active-Record to create a app to track shoe 
 
 ## Setup/Installation Requirements
 
-* Clone this repo: `git clone git@github.com:lawlietblack/{repo}.git`
+* Clone this repo: https://github.com/tyedye105/rshoes_store`
 * Change to the repo directory: `cd {repo}`
 * Install gems: `bundle install --path vendor/bundle`
 * Install the database: *instruction below*
