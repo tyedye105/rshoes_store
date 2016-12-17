@@ -2,6 +2,14 @@
 
 #### By _**Marty Kovach**, 12/16/2016_
 
+
+## Known issues
+
+ Having worked from home I encountered multiple errors with my home setup.I managed to solve my encryption problem, and the missing zlib problem, but the issues with rspec and activerecord I am still fighting. Rspec first had issues in my spec_helper with my RSpec config lines 8-10, citing that my class names where uninitialized constants, after building out as much as I could of sinatra, I did go back and rename them and that fixed that issue. Originally tables were titled shoe_stores, and shoe_brands but rspec took issue with them, until I renamed them stores, and brands.  Then came binding.pry being an undefined method, did little to help my efforts. 
+
+
+
+
 ## Description
 
 This web app leverages the power of Active-Record to create a app to track shoe stores that sell _many brands_ and brans that are _sold at many shoe stores_.
