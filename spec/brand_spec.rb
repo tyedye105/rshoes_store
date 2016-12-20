@@ -5,4 +5,9 @@ describe Brand do
     test_brand = Brand.create({:name => "l.a gear"})
     expect(test_brand.name()).to(eq("L.A Gear"))
   end
+
+    it("ensures a empty form is not submitted") do
+    test_brand = Brand.create({:name => " "})
+    expect(test_brand.save()).to(eq(false))
+  end
 end

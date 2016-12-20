@@ -20,4 +20,9 @@ describe Store do
     test_store = Store.create({:name => "famous footwear"})
     expect(test_store.name()).to(eq("Famous Footwear"))
   end
+
+  it("ensures a empty form is not submitted") do
+    test_store = Store.create({:name => " "})
+    expect(test_store.save()).to(eq(false))
+  end
 end

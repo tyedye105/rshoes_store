@@ -3,7 +3,6 @@
 <h1>Welcome to the wonderful world of shoes!</h1>
 
 </div>
-
 <div id="stores_display">
   <h2>Here are the current stores in the database:</h2>
   <br>
@@ -32,18 +31,22 @@
     <input type="text" name="store_name">
     <button type="submit" name="button">add store</button>
   </form>
+
+
+
   <div id="brand_display">
   <h2>Here are the current brands in the database. </h2>
     <%if @brands.any? %>
       <ul>
       <% @brands.each() do |brand| %>
-         <a href ="brands/<%= brand.id%>/stores"<li><%= brand.name %></li></a>
+         <a href ="brands/<%= brand.id%>/stores"><li><%= brand.name %></li></a>
          <% end %>
       </ul>
       <% else %>
       <h4>There are currently no brands in the database.</h4>
           <%end%>
     </div>
+
     <form id="add_brand" action="/brands" method="post">
       <label for="brand_name">Type in the name of the brand</label>
       <br>
