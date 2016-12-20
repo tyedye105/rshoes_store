@@ -20,3 +20,25 @@ describe('vist store path', {:type => :feature}) do
         expect(page).to have_content("no brands supported")
   end
 end
+
+describe('update store path', {:type => :feature}) do
+  it('will let the user update the name of a store.') do
+        test_store = Store.create({:name => "Famous Footwear"})
+        visit('/')
+        click_link("Famous Footwear")
+        click_link("Update name")
+        fill_in("update_name", :with => "Payless Shoes")
+        click_button('Update')
+        expect(page).to have_content("Payless Shoes")
+      end
+    end
+
+
+    describe('delete store path', {:type => :feature}) do
+      it('will let the user delete the name of a store.') do
+            test_store = Store.create({:name => "Famous Footwear"})
+            visit('/')
+            click_button("Delete the store")
+            expect(page).to have_content("there are no stores")
+          end
+        end

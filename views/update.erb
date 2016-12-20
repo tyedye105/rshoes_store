@@ -1,4 +1,7 @@
 <h1>Update</h1>
-<form class="" action="index.html" method="post">
-
+<form class="" action="/<%= @store.id %>/update" method="post">
+<input type="hidden" name="_method" value="patch">
+<label for="update_name">Enter the updated name:</label>
+<input type="text" name="update_name" id="update_name">
+<button type="submit" name="button">Update</button>
 </form>

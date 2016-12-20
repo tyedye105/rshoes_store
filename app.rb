@@ -25,9 +25,21 @@ delete('/stores/:id/delete') do
   erb(:index)
 end
 
-patch('/stores/:id/update') do
-
+get('/store/:id/edit') do
+  @store = Store.find(params.fetch('id').to_i)
+  erb(:update)
 end
+
+
+patch('/:id/update') do
+  @store = Store.find(params.fetch('id').to_i)
+  name_to_update = params.fetch('update_name')
+  @store.update({:name => name_to_update})
+  @brands = Brand.all()
+  erb(:store_view)
+end
+
+
 
 get('/stores/:id') do
   @store = Store.find(params.fetch('id').to_i)
