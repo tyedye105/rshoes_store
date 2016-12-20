@@ -68,6 +68,7 @@ end
 patch('/stores/:id/brands') do
   @store = Store.find(params.fetch('id').to_i)
   @brands = Brand.all
+<<<<<<< HEAD
 if brand_to_add == params.fetch("add_brand")
   @brands.each do |brand|
       @store.brands.push(@brand)
@@ -75,6 +76,16 @@ if brand_to_add == params.fetch("add_brand")
   else
   redirect('/stores/:id/brand_add')
   end
+=======
+  brand_to_add = params.fetch("add_brand")
+  @brands.each do |brand|
+    if brand.name == nil
+    redirect('/stores/:id/brand_add')
+  else
+  @store.brands.push(@brand)
+end
+end
+>>>>>>> 4233cf0eaaca1898a2dd3c1c007ec24b3e8a8657
 
   erb(:store_view)
 end
