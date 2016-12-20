@@ -7,7 +7,7 @@
 
 
 if a blank field is submitted into the add brand field, it will result in an error.
-
+User can submit the same brand multiple times
 
 
 
