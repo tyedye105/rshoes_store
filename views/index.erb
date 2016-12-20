@@ -33,7 +33,7 @@
     <button type="submit" name="button">add store</button>
   </form>
   <div id="brand_display">
-  <h2>Here are the current brands sold at this store. </h2>
+  <h2>Here are the current brands in the database. </h2>
     <%if @brands.any? %>
       <ul>
       <% @brands.each() do |brand| %>
@@ -41,7 +41,7 @@
          <% end %>
       </ul>
       <% else %>
-      <h4>There are currently no brands supported at this </h4>
+      <h4>There are currently no brands in the database.</h4>
           <%end%>
     </div>
     <form id="add_brand" action="/brands" method="post">

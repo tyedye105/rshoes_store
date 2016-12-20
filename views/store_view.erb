@@ -5,7 +5,7 @@
 
 <h3> here are the current brands sold at this store. </h3>
   <%if @brands.any? %>
-    <% @brands.each() do |brand| %>
+    <% @store.brands.each() do |brand| %>
        <li><%= brand.name %> </li>
     </ul>
     <%end%>
@@ -21,6 +21,6 @@
         <a href="/store/<%= @store.id() %>/edit"><button>Update name</button></a>
       </div>
       <div class="col-md-3">
-        <a href="/"><button> add a brand to the store</button></a>
+        <a href="/stores/<%= @store.id()%>/brand_add"><button>add a brand to the store</button></a>
       </div>
     </div>
