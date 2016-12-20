@@ -15,4 +15,9 @@ describe Store do
       expect(test_store.brands()).to(eq([test_brand]))
     end
   end
+
+  it('will upcase the name of the store before saving.')do
+    test_store = Store.create({:name => "famous footwear"})
+    expect(test_store.name()).to(eq("Famous Footwear"))
+  end
 end
