@@ -1,0 +1,19 @@
+<div class="well">
+<h1>Here are all of the locations that support the <%= @brand.name%>!</h1>
+</div>
+<div class="well">
+<h3>
+  <ul>
+
+  <% if @brand.stores.any? %>
+  <% @brand.stores.each do |store| %>
+  <a href="/stores/<%= store.id %>"><li><%= store.name %></li></a>
+  <% end %>
+  </ul>
+  <% else %>
+  <p>
+  This brand is currently not sold in stores.
+  </p>
+  <% end %>
+</h3>
+</div>

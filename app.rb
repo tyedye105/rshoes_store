@@ -71,3 +71,8 @@ patch('/stores/:id/brands') do
   @brands = Brand.all
   erb(:store_view)
 end
+
+get('/brands/:id/stores') do
+  @brand = Brand.find(params.fetch('id').to_i)
+  erb(:shoe_view)
+end

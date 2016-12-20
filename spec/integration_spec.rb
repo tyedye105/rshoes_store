@@ -33,33 +33,48 @@ set(:show_exceptions, false)
     end
   end
 
-    describe('delete store path', {:type => :feature}) do
-      it('will let the user delete the name of a store.') do
-        test_store = Store.create({:name => "Famous Footwear"})
-        visit('/')
-        click_button("Delete the store")
-        expect(page).to have_content("there are no stores")
-      end
+  describe('delete store path', {:type => :feature}) do
+    it('will let the user delete the name of a store.') do
+      test_store = Store.create({:name => "Famous Footwear"})
+      visit('/')
+      click_button("Delete the store")
+      expect(page).to have_content("there are no stores")
     end
+  end
 
-    describe('new brand path', {:type => :feature}) do
-      it('will let the user add a brand to the database') do
-          visit('/')
-          fill_in('brand_name', :with => "New Balance")
-          click_button('add brand')
-          expect(page).to have_content("New Balance")
-        end
-      end
+  describe('new brand path', {:type => :feature}) do
+    it('will let the user add a brand to the database') do
+      visit('/')
+      fill_in('brand_name', :with => "New Balance")
+      click_button('add brand')
+      expect(page).to have_content("New Balance")
+    end
+  end
 
-    describe('add brand path', {:type => :feature}) do
-      it('will let the user add a brand to be sold at a specific store') do
-            test_store = Store.create({:name => "Famous Footwear"})
-            test_brand = Brand.create({:name => "Rebok"})
-            visit('/')
-            click_link("Famous Footwear")
-            click_link("add a brand to the store")
-            fill_in("add_brand", :with => test_brand.name)
-            click_button('add')
-            expect(page).to have_content("Rebok")
-          end
-        end
+  describe('add brand path', {:type => :feature}) do
+    it('will let the user add a brand to be sold at a specific store') do
+      test_store = Store.create({:name => "Famous Footwear"})
+      test_brand = Brand.create({:name => "Rebok"})
+      visit('/')
+      click_link("Famous Footwear")
+      click_link("add a brand to the store")
+      fill_in("add_brand", :with => test_brand.name)
+      click_button('add')
+      expect(page).to have_content("Rebok")
+    end
+  end
+
+  describe('view brand path', {:type => :feature}) do
+    it('will let click on a brand a view all of the stores it is sold in (if any)') do
+      test_store = Store.create({:name => "Famous Footwear"})
+      test_brand = Brand.create({:name => "Rebok"})
+      visit('/')
+      click_link("Famous Footwear")
+      click_link("add a brand to the store")
+      fill_in("add_brand", :with => test_brand.name)
+      click_button('add')
+      click_link('Return to the home page!')
+      click_link("Rebok")
+      expect(page).to have_content("Famous Footwear")
+    end
+  end
