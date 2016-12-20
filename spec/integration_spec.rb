@@ -11,3 +11,12 @@ set(:show_exceptions, false)
       expect(page).to have_content("Payless Shoes")
     end
   end
+
+describe('vist store path', {:type => :feature}) do
+  it('will let the user a specific store by clicking on its link.') do
+        test_store = Store.create({:name => "Famous Footwear"})
+        visit('/')
+        click_link("Famous Footwear")
+        expect(page).to have_content("no brands supported")
+  end
+end
