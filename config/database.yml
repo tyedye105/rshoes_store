@@ -1,9 +1,8 @@
 development:
   adapter: postgresql
   database: shoe_store_development
-  encoding: win1252
+
 
 test:
   adapter: postgresql
   database: shoe_store_test
-  encoding: win1252
