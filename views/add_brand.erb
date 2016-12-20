@@ -1,0 +1,22 @@
+<h1>Update</h1>
+<form class="" action="/stores/<%= @store.id %>/brands" method="post">
+<input type="hidden" name="_method" value="patch">
+<label for="add_brand">Type in a name of one of the available brands:</label>
+<input type="text" name="add_brand" id="add_brand">
+<button type="submit" name="button">add</button>
+</form>
+<div id="brand_display">
+<h2>Here are the current brands in the database. </h2>
+  <%if @brands.any? %>
+    <ul>
+    <% @brands.each() do |brand| %>
+       <li><%= brand.name %></li>
+       <% end %>
+    </ul>
+    <% else %>
+    <h4>There are currently no brands in the database.</h4>
+        <%end%>
+  </div>
+
+
+    <a href="/"><button>Return to the home page! </button></a>

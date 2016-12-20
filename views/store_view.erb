@@ -1,0 +1,26 @@
+<div class="jumbotron">
+<h1>Welcome to <%= @store.name %></h1>
+</div>
+
+
+<h3> here are the current brands sold at this store. </h3>
+  <%if @brands.any? %>
+    <% @store.brands.each() do |brand| %>
+       <li><%= brand.name %> </li>
+    </ul>
+    <%end%>
+    <% else %>
+    <h4>There are currently no brands supported at this store.</h4>
+    <%end%>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <a href="/"><button>Return to the home page! </button></a>
+      </div>
+      <div class="col-md-3">
+        <a href="/store/<%= @store.id() %>/edit"><button>Update name</button></a>
+      </div>
+      <div class="col-md-3">
+        <a href="/stores/<%= @store.id()%>/brand_add"><button>add a brand to the store</button></a>
+      </div>
+    </div>

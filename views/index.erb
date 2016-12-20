@@ -1,0 +1,58 @@
+<div class="jumbotron">
+
+<h1>Welcome to the wonderful world of shoes!</h1>
+
+</div>
+<div id="stores_display">
+  <h2>Here are the current stores in the database:</h2>
+  <br>
+  <% if @stores.any? %>
+  <% @stores.each do |store| %>
+    <div class="row">
+      <div class="col-md-3">
+        <h3><a href="/stores/<%= store.id %>"><%= store.name %></a></h3>
+      </div>
+      <div class="col-md-2">
+        <form  action="/stores/<%= store.id %>/delete" method="post">
+          <input type="hidden" name="_method" value="delete">
+            <h3> <button type="submit" name="button" class="btn btn-danger btn-xs">Delete the store</button> </h3>
+        </form>
+      </div>
+    </div>
+    <% end %>
+
+  <% else %>
+    <p>there are no stores in the database. add one below!</p>
+    <% end %>
+  </div>
+  <form id="add_store" action="/stores" method="post">
+    <label for="store_name">Type in the name of the store</label>
+    <br>
+    <input type="text" name="store_name">
+    <button type="submit" name="button">add store</button>
+  </form>
+
+
+
+  <div id="brand_display">
+  <h2>Here are the current brands in the database. </h2>
+    <%if @brands.any? %>
+      <ul>
+      <% @brands.each() do |brand| %>
+         <a href ="brands/<%= brand.id%>/stores"><li><%= brand.name %></li></a>
+         <% end %>
+      </ul>
+      <% else %>
+      <h4>There are currently no brands in the database.</h4>
+          <%end%>
+    </div>
+
+    <form id="add_brand" action="/brands" method="post">
+      <label for="brand_name">Type in the name of the brand</label>
+      <br>
+      <input type="text" name="brand_name">
+      <button type="submit" name="button">add brand</button>
+    </form>
+
+
+  <a href="/"><button>Return to the home page! </button></a>
